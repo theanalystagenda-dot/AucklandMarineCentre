@@ -5,7 +5,6 @@ const quickLinks = [
   { label: 'Used Boats', href: '/boats/used' },
   { label: 'Mercury Outboards', href: '/outboards/mercury' },
   { label: 'Suzuki Outboards', href: '/outboards/suzuki' },
-  { label: 'Jet Skis', href: '/jet-skis' },
   { label: 'Service', href: '/service' },
   { label: 'Finance', href: '/finance' },
   { label: 'Specials', href: '/specials' },

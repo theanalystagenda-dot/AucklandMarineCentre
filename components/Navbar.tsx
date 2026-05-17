@@ -18,7 +18,6 @@ const outboardLinks = [
 ]
 
 const mainLinks = [
-  { label: 'Jet Skis', href: '/jet-skis' },
   { label: 'Service', href: '/service' },
   { label: 'Finance', href: '/finance' },
   { label: 'Specials', href: '/specials' },

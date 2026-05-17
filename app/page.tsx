@@ -27,7 +27,6 @@ const brandLogos = [
   { name: 'Legacy SLR', href: '/boats/new/legacy-slr', logo: null },
   { name: 'Mercury', href: '/outboards/mercury', logo: manifest.mercuryLogo || null },
   { name: 'Suzuki', href: '/outboards/suzuki', logo: null },
-  { name: 'Kawasaki', href: '/jet-skis', logo: null },
 ]
 
 const serviceItems = [
