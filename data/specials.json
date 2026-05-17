@@ -1,0 +1,82 @@
+[
+  {
+    "id": "sp-001",
+    "title": "KiwiKraft 490 Estuary Pack",
+    "category": "boat",
+    "image": "",
+    "description": "Complete boat, motor and trailer package. KiwiKraft 490 paired with Mercury 60hp EFI and alloy trailer.",
+    "price": "$24,990",
+    "badge": "Package Deal",
+    "expires": "2026-06-30"
+  },
+  {
+    "id": "sp-002",
+    "title": "Mercury 90hp FourStroke",
+    "category": "outboard",
+    "image": "",
+    "description": "New Mercury 90hp EFI FourStroke. Trade-in considered. Includes 3-year warranty.",
+    "price": "$8,490",
+    "badge": "Save $600",
+    "expires": "2026-05-31"
+  },
+  {
+    "id": "sp-003",
+    "title": "2024 Boat Show Deals — Challenger 580",
+    "category": "boat-show",
+    "image": "",
+    "description": "Show-priced Challenger 580 Hard Top with full electronics fitout and 5-year hull warranty.",
+    "price": "$59,990",
+    "badge": "Show Price",
+    "expires": "2026-06-15"
+  },
+  {
+    "id": "sp-004",
+    "title": "Suzuki DF115A Outboard",
+    "category": "outboard",
+    "image": "",
+    "description": "Suzuki DF115A FourStroke. Class-leading fuel efficiency with Suzuki's Lean Burn technology.",
+    "price": "$10,990",
+    "badge": "0% Finance",
+    "expires": null
+  },
+  {
+    "id": "sp-005",
+    "title": "AMC 520 Family Pack",
+    "category": "boat",
+    "image": "",
+    "description": "AMC 520 alloy boat with Mercury 90hp FourStroke and SBS alloy trailer. Ready to launch.",
+    "price": "$32,490",
+    "badge": "Package Deal",
+    "expires": "2026-06-30"
+  },
+  {
+    "id": "sp-006",
+    "title": "Boat Show — Mercury Verado 250",
+    "category": "boat-show",
+    "image": "",
+    "description": "Mercury Verado 250hp with joystick docking system. Demo unit, full warranty.",
+    "price": "$28,990",
+    "badge": "Demo Unit",
+    "expires": "2026-06-15"
+  },
+  {
+    "id": "sp-007",
+    "title": "Campion 545i Clearance",
+    "category": "boat",
+    "image": "",
+    "description": "Last 2024 model Campion 545i bowrider. Full price reduction to clear — full warranty remains.",
+    "price": "$42,990",
+    "badge": "Clearance",
+    "expires": "2026-05-31"
+  },
+  {
+    "id": "sp-008",
+    "title": "Mercury 40hp EFI Tiller",
+    "category": "outboard",
+    "image": "",
+    "description": "Mercury 40hp EFI FourStroke tiller model. Perfect for tinnies and small runabouts.",
+    "price": "$5,490",
+    "badge": "Save $400",
+    "expires": null
+  }
+]

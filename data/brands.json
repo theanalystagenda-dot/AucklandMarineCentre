@@ -1,0 +1,70 @@
+[
+  {
+    "name": "KiwiKraft",
+    "slug": "kiwikraft",
+    "logoPath": "/images/brands/kiwikraft.png",
+    "description": "New Zealand's leading alloy boat manufacturer, KiwiKraft builds tough, purpose-built fishing and family vessels designed for our unique coastal conditions.",
+    "externalUrl": "https://www.kiwikraft.com"
+  },
+  {
+    "name": "Ultimate Boats",
+    "slug": "ultimate-boats",
+    "logoPath": "/images/brands/ultimate-boats.png",
+    "description": "Ultimate Boats delivers premium aluminium vessels with a focus on performance, durability, and innovative design for serious boaties."
+  },
+  {
+    "name": "FlyFin Boats",
+    "slug": "flyfin",
+    "logoPath": "/images/brands/flyfin.png",
+    "description": "FlyFin specialises in high-performance alloy sportsfishing boats, built for speed and stability in New Zealand's challenging offshore conditions."
+  },
+  {
+    "name": "Fi-Glass Boats",
+    "slug": "fi-glass",
+    "logoPath": "/images/brands/fi-glass.png",
+    "description": "Fi-Glass produces quality fibreglass runabouts and family boats that combine classic styling with modern construction techniques."
+  },
+  {
+    "name": "Senator Boats",
+    "slug": "senator",
+    "logoPath": "/images/brands/senator.png",
+    "description": "Senator Boats offers a premium range of pontoon and bowrider vessels, perfect for family recreation and entertaining on the water."
+  },
+  {
+    "name": "AMC Boats",
+    "slug": "amc-boats",
+    "logoPath": "/images/brands/amc-boats.png",
+    "description": "Auckland Marine Centre's own brand delivers exceptional value alloy boats built specifically for New Zealand conditions, backed by our full service team."
+  },
+  {
+    "name": "Challenger Boats",
+    "slug": "challenger",
+    "logoPath": "/images/brands/challenger.png",
+    "description": "Challenger Boats are renowned for their robust alloy construction and outstanding sea-keeping ability across a comprehensive range of fishing and family models.",
+    "externalUrl": "https://www.challengerboats.co.nz"
+  },
+  {
+    "name": "Campion Boats",
+    "slug": "campion",
+    "logoPath": "/images/brands/campion.png",
+    "description": "Campion is a premium Canadian boat brand offering beautiful fibreglass bowriders, cuddy cabins, and runabouts with exceptional fit and finish."
+  },
+  {
+    "name": "Reflex Boats",
+    "slug": "reflex",
+    "logoPath": "/images/brands/reflex.png",
+    "description": "Reflex Boats are purpose-built high-performance alloy vessels designed for New Zealand's demanding inshore and offshore fishing environments."
+  },
+  {
+    "name": "Fyran",
+    "slug": "fyran",
+    "logoPath": "/images/brands/fyran.png",
+    "description": "Fyran builds premium alloy centre console and walk-around vessels with a focus on serious sportsfishing capability and offshore performance."
+  },
+  {
+    "name": "Legacy SLR Boats",
+    "slug": "legacy-slr",
+    "logoPath": "/images/brands/legacy-slr.png",
+    "description": "Legacy SLR produces top-tier fibreglass sports cruisers and cuddy cabins that blend stunning aesthetics with outstanding on-water performance."
+  }
+]

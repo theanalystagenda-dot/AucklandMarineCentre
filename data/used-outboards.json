@@ -1,0 +1,82 @@
+[
+  {
+    "id": "uo-001",
+    "title": "2022 Mercury 115hp FourStroke",
+    "year": 2022,
+    "brand": "Mercury",
+    "hp": 115,
+    "price": 9800,
+    "image": "",
+    "badge": "Low Hours"
+  },
+  {
+    "id": "uo-002",
+    "title": "2020 Suzuki DF150AP",
+    "year": 2020,
+    "brand": "Suzuki",
+    "hp": 150,
+    "price": 12500,
+    "image": "",
+    "badge": null
+  },
+  {
+    "id": "uo-003",
+    "title": "2019 Mercury 60hp EFI FourStroke",
+    "year": 2019,
+    "brand": "Mercury",
+    "hp": 60,
+    "price": 5400,
+    "image": "",
+    "badge": null
+  },
+  {
+    "id": "uo-004",
+    "title": "2021 Suzuki DF90A",
+    "year": 2021,
+    "brand": "Suzuki",
+    "hp": 90,
+    "price": 8200,
+    "image": "",
+    "badge": "Near New"
+  },
+  {
+    "id": "uo-005",
+    "title": "2018 Mercury 200hp Verado",
+    "year": 2018,
+    "brand": "Mercury",
+    "hp": 200,
+    "price": 16500,
+    "image": "",
+    "badge": null
+  },
+  {
+    "id": "uo-006",
+    "title": "2017 Suzuki DF30A",
+    "year": 2017,
+    "brand": "Suzuki",
+    "hp": 30,
+    "price": 3200,
+    "image": "",
+    "badge": "Price Reduced"
+  },
+  {
+    "id": "uo-007",
+    "title": "2023 Mercury 40hp EFI FourStroke",
+    "year": 2023,
+    "brand": "Mercury",
+    "hp": 40,
+    "price": 6100,
+    "image": "",
+    "badge": "Low Hours"
+  },
+  {
+    "id": "uo-008",
+    "title": "2020 Mercury 250hp Verado",
+    "year": 2020,
+    "brand": "Mercury",
+    "hp": 250,
+    "price": 22000,
+    "image": "",
+    "badge": null
+  }
+]
