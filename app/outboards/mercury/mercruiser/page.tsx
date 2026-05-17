@@ -37,7 +37,7 @@ export default function MerCruiserPage() {
             <h1 className="font-display text-5xl lg:text-6xl font-bold text-white">MerCruiser</h1>
           </div>
           <p className="text-silver-mid text-lg max-w-2xl">
-            MerCruiser sterndrives and inboard engines — serviced and supported by AMC&apos;s certified technicians.
+            MerCruiser sterndrives and inboard engines - serviced and supported by AMC&apos;s certified technicians.
           </p>
         </div>
       </div>

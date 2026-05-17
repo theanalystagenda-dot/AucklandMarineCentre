@@ -9,7 +9,7 @@ import manifest from '@/data/image-manifest.json'
 
 const categories = [
   { label: 'New Boats', desc: '75+ models across 11 leading brands', href: '/boats/new', image: '/images/hero/hero-boats.jpg' },
-  { label: 'Outboards', desc: 'Mercury & Suzuki — full range in stock', href: '/outboards/mercury', image: '/images/hero/hero-mercury-get-more.jpg' },
+  { label: 'Outboards', desc: 'Mercury & Suzuki - full range in stock', href: '/outboards/mercury', image: '/images/hero/hero-mercury-get-more.jpg' },
   { label: 'Service', desc: 'Mercury & Suzuki certified centre', href: '/service', image: '/images/service/workshop-directions.png' },
   { label: 'Specials', desc: 'Current deals and package offers', href: '/specials', image: '/images/hero/hero-2stroke-runout.jpg' },
 ]
@@ -165,7 +165,7 @@ export default function HomePage() {
             <div>
               <SectionHeader title="Auckland's Marine Specialists Since 1989" />
               <p className="text-charcoal leading-relaxed max-w-prose mb-8 text-[15px]">
-                Auckland Marine Centre has been serving New Zealand boaties from our Burswood showroom for over 35 years. As the country&apos;s largest marine dealer, we stock 75+ boat models across 12 brands — from entry-level tinnies to serious offshore rigs. We&apos;re a Mercury and Suzuki certified service centre, meaning your engine gets factory-trained care every time.
+                Auckland Marine Centre has been serving New Zealand boaties from our Burswood showroom for over 35 years. As the country&apos;s largest marine dealer, we stock 75+ boat models across 12 brands - from entry-level tinnies to serious offshore rigs. We&apos;re a Mercury and Suzuki certified service centre, meaning your engine gets factory-trained care every time.
               </p>
               <Link
                 href="/about"
@@ -214,7 +214,7 @@ export default function HomePage() {
               Auckland&apos;s #1 Mercury &amp; Suzuki Service Centre
             </h2>
             <p className="text-silver-dark text-[15px] leading-relaxed">
-              Factory-trained technicians, genuine parts, and a full workshop — all under one roof at Burswood.
+              Factory-trained technicians, genuine parts, and a full workshop - all under one roof at Burswood.
             </p>
           </div>
 

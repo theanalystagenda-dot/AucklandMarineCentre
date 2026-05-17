@@ -24,7 +24,7 @@ export default function MercuryPage() {
             <h1 className="font-display text-5xl lg:text-6xl font-bold text-white">Mercury Outboards</h1>
           </div>
           <p className="text-silver-mid text-lg max-w-2xl">
-            Full Mercury range in stock — from 2.5hp portables to 350hp Verados. Auckland&apos;s authorised Mercury dealer and certified service centre.
+            Full Mercury range in stock - from 2.5hp portables to 350hp Verados. Auckland&apos;s authorised Mercury dealer and certified service centre.
           </p>
         </div>
       </div>

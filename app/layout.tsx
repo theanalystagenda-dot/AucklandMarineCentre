@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Auckland Marine Centre — New Zealand\'s Largest Marine Dealer',
+  title: "Auckland Marine Centre · New Zealand's Largest Marine Dealer",
   description: "Auckland Marine Centre at 321 Ti Rakau Drive, Burswood. Mercury & Suzuki certified service. 75+ boat models from 12 brands. Est. 1989.",
 }
 

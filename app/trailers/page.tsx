@@ -14,10 +14,10 @@ export default function TrailersPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Boat Trailers"
-          subtitle="SBS alloy trailers to suit every vessel — single-axle tinnies through to 22ft offshore rigs."
+          subtitle="SBS alloy trailers to suit every vessel - single-axle tinnies through to 22ft offshore rigs."
         />
         <p className="text-charcoal max-w-2xl mb-12 leading-relaxed">
-          We stock a full range of SBS alloy trailers to match every boat we sell. All trailers are pre-wired with LED lights, feature galvanised hubs, and can be configured with rollers or bunks. Custom trailer fitout available — ask our team.
+          We stock a full range of SBS alloy trailers to match every boat we sell. All trailers are pre-wired with LED lights, feature galvanised hubs, and can be configured with rollers or bunks. Custom trailer fitout available - ask our team.
         </p>
 
         <div className="overflow-x-auto mb-16">

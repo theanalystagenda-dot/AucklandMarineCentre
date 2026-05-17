@@ -24,7 +24,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
 
   const models = placeholderModels(brand.name)
 
-  // Resolve brand images from manifest — normalise slug to manifest key
+  // Resolve brand images from manifest - normalise slug to manifest key
   const manifestKey = slug.replace(/-/g, '').replace('boats', '').replace('legacy', 'slr').replace('slr', 'slr')
   const brandImages: string[] = (manifest.boats as Record<string, string[]>)[slug]
     ?? (manifest.boats as Record<string, string[]>)[manifestKey]
@@ -33,7 +33,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
 
   return (
     <div>
-      {/* Hero — real image if available, navy fallback */}
+      {/* Hero - real image if available, navy fallback */}
       <div className="relative h-72 lg:h-96 overflow-hidden">
         {heroImage ? (
           <Image src={heroImage} alt={brand.name} fill className="object-cover object-center" priority />

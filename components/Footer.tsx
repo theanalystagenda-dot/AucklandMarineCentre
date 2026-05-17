@@ -26,7 +26,7 @@ export default function Footer() {
             <p className="text-silver-dark text-sm leading-relaxed mb-4">
               New Zealand&apos;s largest marine dealership. Mercury &amp; Suzuki certified service. Est. 1989.
             </p>
-            <p className="text-silver-dark text-xs">Used boats wanted — buying now. Contact our sales team.</p>
+            <p className="text-silver-dark text-xs">Used boats wanted - buying now. Contact our sales team.</p>
           </div>
 
           <div>

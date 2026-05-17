@@ -11,14 +11,14 @@ const checklistItems = [
 ]
 
 const services = [
-  { title: 'Engine Servicing', desc: 'All major brands — Mercury, Suzuki, Yamaha, Honda, and Evinrude. Factory-trained technicians only.' },
+  { title: 'Engine Servicing', desc: 'All major brands - Mercury, Suzuki, Yamaha, Honda, and Evinrude. Factory-trained technicians only.' },
   { title: 'Electronics Installation', desc: 'Simrad, Lowrance, Humminbird, Furuno. Full fitout including chartplotters, sonar, VHF, and AIS.' },
   { title: 'Live Bait & Sportsfishing Fitout', desc: 'Custom live bait tank installation, rod holders, tackle storage, and outrigger rigging.' },
-  { title: 'VHF Radios & Stereos', desc: 'Standard Horizon, Uniden, Fusion, JL Audio — installation, wiring, and testing.' },
+  { title: 'VHF Radios & Stereos', desc: 'Standard Horizon, Uniden, Fusion, JL Audio - installation, wiring, and testing.' },
   { title: 'Bilge Pumps & Plumbing', desc: 'Rule, Jabsco, and Whale bilge pump installation. Livewell and washdown plumbing.' },
   { title: 'Trailer Repairs & Replacement', desc: 'SBS trailer repairs, bearing replacement, brake servicing, and full trailer replacement.' },
   { title: 'Minn-Kota Electric Trolling Motors', desc: 'Authorised Minn-Kota Pro-Store. Humminbird MEGA sonar integration and full installation.' },
-  { title: 'Canvas & Canopy Repairs', desc: 'Hard top, Bimini, and custom canvas — repairs and replacements by our fitout team.' },
+  { title: 'Canvas & Canopy Repairs', desc: 'Hard top, Bimini, and custom canvas - repairs and replacements by our fitout team.' },
   { title: 'Pre-Purchase Inspection', desc: 'Buying a second-hand boat? Our 50-point inspection gives you peace of mind before you commit.' },
   { title: 'Mercury Genuine Parts', desc: 'Genuine Mercury parts and accessories in stock. If we don\'t have it, we can order it next-day.' },
 ]
@@ -48,14 +48,14 @@ export default function ServicePage() {
           <div className="relative w-full h-56 overflow-hidden mb-12">
             <Image
               src="/images/service/workshop-directions.png"
-              alt="Workshop location — 321 Ti Rakau Drive, Burswood"
+              alt="Workshop location - 321 Ti Rakau Drive, Burswood"
               fill
               className="object-cover object-center"
             />
           </div>
 
           <div className="mb-16">
-            <SectionHeader title="50-Point Service Inspection" subtitle="Every service includes a comprehensive check of your vessel — documented and explained in plain English." />
+            <SectionHeader title="50-Point Service Inspection" subtitle="Every service includes a comprehensive check of your vessel - documented and explained in plain English." />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-3">
               {checklistItems.map((item) => (
                 <div key={item} className="flex items-center gap-2 text-sm text-charcoal">
@@ -101,10 +101,10 @@ export default function ServicePage() {
                     className="object-contain"
                   />
                 </div>
-                <p className="text-sm text-silver-dark leading-relaxed">Authorised Mercury &amp; Suzuki certified service centre — factory-trained technicians only.</p>
+                <p className="text-sm text-silver-dark leading-relaxed">Authorised Mercury &amp; Suzuki certified service centre - factory-trained technicians only.</p>
               </div>
               <div className="bg-silver rounded-xl p-6 mb-8">
-                <h3 className="font-semibold text-charcoal mb-1">Andrew Hilliar — Service Manager</h3>
+                <h3 className="font-semibold text-charcoal mb-1">Andrew Hilliar - Service Manager</h3>
                 <div className="flex flex-col gap-2 mt-3">
                   <a href="tel:092711575" className="flex items-center gap-2 text-sm text-ocean hover:underline">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

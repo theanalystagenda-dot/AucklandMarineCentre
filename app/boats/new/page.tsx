@@ -8,7 +8,7 @@ export default function NewBoatsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="New Boats"
-          subtitle="New Zealand's largest range — 75+ models across 11 leading brands, all in stock at our Burswood showroom."
+          subtitle="New Zealand's largest range - 75+ models across 11 leading brands, all in stock at our Burswood showroom."
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
           {brands.map((brand) => (

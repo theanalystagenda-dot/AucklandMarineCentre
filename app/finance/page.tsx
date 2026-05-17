@@ -224,7 +224,7 @@ export default function FinancePage() {
           </div>
         </div>
         <p className="text-center text-xs text-silver-dark mt-6">
-          Finance available from 0% — subject to lender approval. Terms and conditions apply.
+          Finance available from 0% - subject to lender approval. Terms and conditions apply.
         </p>
       </div>
     </div>

@@ -9,7 +9,7 @@ const slideCopy = [
   {
     eyebrow: 'Mercury Outboards',
     headline: 'Get More on the Water',
-    subline: 'Mercury outboard packages — sharp deals, limited stock.',
+    subline: 'Mercury outboard packages - sharp deals, limited stock.',
     cta: { label: 'View Mercury Range', href: '/outboards/mercury' },
   },
   {
@@ -38,7 +38,7 @@ const slideCopy = [
   },
 ]
 
-// Pair scraped images with slide copy — cycle images if fewer than slides
+// Pair scraped images with slide copy - cycle images if fewer than slides
 const heroImages = manifest.hero
 const slides = slideCopy.map((copy, i) => ({
   ...copy,
@@ -81,7 +81,7 @@ export default function HeroSlider() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Slides — real images with overlay */}
+      {/* Slides - real images with overlay */}
       {slides.map((s, i) => (
         <div
           key={i}
