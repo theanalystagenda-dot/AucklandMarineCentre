@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const boatsLinks = [
   { label: 'New Boats', href: '/boats/new' },
@@ -50,13 +51,15 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-[60px]">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-              <div className="w-7 h-7 bg-navy flex items-center justify-center shrink-0">
-                <span className="font-display text-white font-bold text-xs tracking-wider">AMC</span>
-              </div>
-              <span className="font-display text-base font-bold text-navy tracking-wide hidden sm:block group-hover:text-ocean transition-colors duration-200">
-                Auckland Marine Centre
-              </span>
+            <Link href="/" className="flex items-center gap-3 shrink-0 group">
+              <Image
+                src="/images/brand/logo.png"
+                alt="Auckland Marine Centre"
+                width={180}
+                height={48}
+                priority
+                className="h-10 w-auto object-contain"
+              />
             </Link>
 
             {/* Desktop nav */}
@@ -143,11 +146,14 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="fixed inset-0 z-[60] bg-white flex flex-col">
           <div className="flex items-center justify-between px-4 h-[60px] border-b border-silver-mid">
-            <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5">
-              <div className="w-7 h-7 bg-navy flex items-center justify-center">
-                <span className="font-display text-white font-bold text-xs">AMC</span>
-              </div>
-              <span className="font-display text-base font-bold text-navy">Auckland Marine Centre</span>
+            <Link href="/" onClick={() => setMobileOpen(false)}>
+              <Image
+                src="/images/brand/logo.png"
+                alt="Auckland Marine Centre"
+                width={160}
+                height={42}
+                className="h-9 w-auto object-contain"
+              />
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 text-charcoal" aria-label="Close menu">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

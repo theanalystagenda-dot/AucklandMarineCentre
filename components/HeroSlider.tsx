@@ -2,43 +2,53 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import manifest from '@/data/image-manifest.json'
 
-const slides = [
+const slideCopy = [
   {
-    eyebrow: 'Current Offers',
-    headline: "This Season's Best Deals",
-    subline: 'Boats, outboards, and packages priced to move. Finance from 0%.',
-    cta: { label: 'View Specials', href: '/specials' },
-    accent: '#0E4D8F',
+    eyebrow: 'Mercury Outboards',
+    headline: 'Get More on the Water',
+    subline: 'Mercury outboard packages — sharp deals, limited stock.',
+    cta: { label: 'View Mercury Range', href: '/outboards/mercury' },
   },
   {
-    eyebrow: 'New Stock',
-    headline: 'New Boats In Stock Now',
-    subline: '75+ models from 12 leading brands. Walk-in and take your pick.',
-    cta: { label: 'Browse New Boats', href: '/boats/new' },
-    accent: '#1A6BC4',
+    eyebrow: 'Run-Out Deals',
+    headline: '2-Stroke Run-Out Deals',
+    subline: 'Major savings on remaining two-stroke stock. Don\'t miss out.',
+    cta: { label: 'Shop Specials', href: '/specials' },
   },
   {
     eyebrow: 'Certified Service',
-    headline: 'Mercury & Suzuki Service',
-    subline: "Auckland's only dual-certified service centre. Book online today.",
+    headline: "Auckland's #1 Service Centre",
+    subline: 'Mercury & Suzuki certified. 50-point inspection included.',
     cta: { label: 'Book a Service', href: '/service' },
-    accent: '#2D6DA8',
   },
   {
-    eyebrow: 'Full Range In Stock',
-    headline: 'Mercury Outboards',
-    subline: 'Verado, FourStroke, Sea Pro, Avator Electric — every line available.',
-    cta: { label: 'Shop Mercury', href: '/outboards/mercury' },
-    accent: '#0E4D8F',
+    eyebrow: 'New & Used Stock',
+    headline: 'New & Used Boats',
+    subline: '75+ models on the yard. New boat? Trade-in? We can help.',
+    cta: { label: 'Browse Boats', href: '/boats/new' },
+  },
+  {
+    eyebrow: 'Easy Finance',
+    headline: 'Finance from 0%',
+    subline: 'Flexible packages to suit any budget. Quick decision.',
+    cta: { label: 'Apply for Finance', href: '/finance' },
   },
 ]
+
+// Pair scraped images with slide copy — cycle images if fewer than slides
+const heroImages = manifest.hero
+const slides = slideCopy.map((copy, i) => ({
+  ...copy,
+  image: heroImages[i % heroImages.length] ?? '',
+}))
 
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
   const [key, setKey] = useState(0)
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const goTo = useCallback((idx: number) => {
     setCurrent(idx)
@@ -50,8 +60,8 @@ export default function HeroSlider() {
 
   useEffect(() => {
     if (paused) return
-    timerRef.current = setInterval(next, 5000)
-    return () => { if (timerRef.current) clearInterval(timerRef.current) }
+    const id = setInterval(next, 5000)
+    return () => clearInterval(id)
   }, [paused, next])
 
   useEffect(() => {
@@ -67,39 +77,44 @@ export default function HeroSlider() {
 
   return (
     <div
-      className="relative overflow-hidden h-[580px] sm:h-[640px] amc-hero-grain"
+      className="relative overflow-hidden h-[580px] sm:h-[640px]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Deep navy base */}
-      <div className="absolute inset-0 bg-navy" />
+      {/* Slides — real images with overlay */}
+      {slides.map((s, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 transition-opacity duration-700 ${i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+        >
+          {s.image ? (
+            <Image
+              src={s.image}
+              alt={s.headline}
+              fill
+              className="object-cover object-center"
+              priority={i === 0}
+            />
+          ) : (
+            <div className="absolute inset-0 bg-navy" />
+          )}
+          {/* Gradient overlays for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/50 to-navy/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-transparent" />
+        </div>
+      ))}
 
-      {/* Drifting colour orb */}
+      {/* Grain texture */}
       <div
-        key={current}
-        className="amc-drift absolute w-[700px] h-[700px] rounded-full opacity-20 blur-3xl pointer-events-none"
+        className="absolute inset-0 z-20 pointer-events-none opacity-30"
         style={{
-          background: `radial-gradient(circle, ${slide.accent} 0%, transparent 70%)`,
-          top: '-15%',
-          right: '-10%',
+          backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E\")",
+          backgroundSize: '300px 300px',
         }}
       />
-
-      {/* Subtle grid overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: 'linear-gradient(var(--color-silver-mid) 1px, transparent 1px), linear-gradient(90deg, var(--color-silver-mid) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      {/* Vignette */}
-      <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/40 via-transparent to-transparent pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center">
+      <div className="relative z-30 h-full flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl">
             <p key={`eyebrow-${key}`} className="amc-enter-1 text-ocean-light text-xs font-semibold tracking-[0.2em] uppercase mb-4">
@@ -132,34 +147,24 @@ export default function HeroSlider() {
         </div>
       </div>
 
-      {/* Bottom controls row */}
-      <div className="absolute bottom-0 left-0 right-0 z-20">
-        {/* Progress bar */}
+      {/* Bottom controls */}
+      <div className="absolute bottom-0 left-0 right-0 z-40">
         <div className="h-px bg-white/10">
           {!paused && (
-            <div
-              key={key}
-              className="amc-slide-progress h-full bg-white/60"
-            />
+            <div key={key} className="amc-slide-progress h-full bg-white/60" />
           )}
         </div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
-          {/* Slide dots */}
           <div className="flex gap-2">
             {slides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
                 aria-label={`Go to slide ${i + 1}`}
-                className={`h-0.5 transition-all duration-300 ${
-                  i === current ? 'w-8 bg-white' : 'w-4 bg-white/30 hover:bg-white/50'
-                }`}
+                className={`h-0.5 transition-all duration-300 ${i === current ? 'w-8 bg-white' : 'w-4 bg-white/30 hover:bg-white/50'}`}
               />
             ))}
           </div>
-
-          {/* Slide counter */}
           <span className="text-white/40 text-xs font-mono tracking-widest">
             {String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
           </span>

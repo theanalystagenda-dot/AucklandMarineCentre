@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import FilterBar from '@/components/FilterBar'
 import SectionHeader from '@/components/SectionHeader'
 import usedOutboardsData from '@/data/used-outboards.json'
@@ -62,22 +63,25 @@ export default function UsedOutboardsPage() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((outboard) => (
-              <div key={outboard.id} className="bg-white rounded-xl border border-silver-mid shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
-                <div className="aspect-[4/3] bg-silver relative flex items-center justify-center">
-                  {outboard.badge && (
-                    <span className="absolute top-3 right-3 bg-ocean text-white text-xs font-semibold px-2.5 py-1 rounded-md">{outboard.badge}</span>
+              <div key={outboard.id} className="bg-white border border-silver-mid shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden group">
+                <div className="aspect-[4/3] bg-charcoal relative overflow-hidden">
+                  {outboard.image ? (
+                    <Image src={outboard.image} alt={outboard.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-charcoal to-navy" />
                   )}
-                  <svg className="w-16 h-16 text-silver-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  {outboard.badge && (
+                    <span className="absolute top-0 right-0 bg-ocean text-white text-[10px] font-bold px-3 py-1.5 tracking-wider uppercase">{outboard.badge}</span>
+                  )}
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-charcoal mb-1">{outboard.title}</h3>
                   <p className="text-sm text-silver-dark mb-1">{outboard.year} · {outboard.hp}hp</p>
-                  <p className="text-ocean font-bold text-lg mb-3">${outboard.price.toLocaleString()}</p>
-                  <a href={`/contact?enquiry=${encodeURIComponent(`Enquiry about ${outboard.title}`)}`} className="block text-center bg-navy text-white text-sm font-medium py-2 rounded-md hover:bg-navy-light transition-colors">
+                  <p className="font-display text-xl font-bold text-navy mb-3">${outboard.price.toLocaleString()}</p>
+                  <a href={`/contact?enquiry=${encodeURIComponent(`Enquiry about ${outboard.title}`)}`} className="flex items-center justify-between border border-charcoal/20 text-charcoal text-xs font-bold px-4 py-2.5 hover:bg-navy hover:text-white hover:border-navy transition-all duration-200">
                     Enquire
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                   </a>
                 </div>
               </div>

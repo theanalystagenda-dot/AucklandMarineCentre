@@ -1,82 +1,10 @@
 [
-  {
-    "id": "ub-001",
-    "title": "2021 KiwiKraft 550 Frontier",
-    "year": 2021,
-    "brand": "KiwiKraft",
-    "engine": "Mercury 115hp Fourstroke",
-    "price": 42500,
-    "image": "",
-    "badge": "Low Hours"
-  },
-  {
-    "id": "ub-002",
-    "title": "2019 Challenger 580 Hard Top",
-    "year": 2019,
-    "brand": "Challenger",
-    "engine": "Suzuki 150hp Fourstroke",
-    "price": 38900,
-    "image": "",
-    "badge": null
-  },
-  {
-    "id": "ub-003",
-    "title": "2022 FlyFin 530 Pro Series",
-    "year": 2022,
-    "brand": "FlyFin",
-    "engine": "Mercury 115hp Fourstroke",
-    "price": 54800,
-    "image": "",
-    "badge": "Near New"
-  },
-  {
-    "id": "ub-004",
-    "title": "2018 Campion 545i Bowrider",
-    "year": 2018,
-    "brand": "Campion",
-    "engine": "MerCruiser 4.3L V6",
-    "price": 28500,
-    "image": "",
-    "badge": null
-  },
-  {
-    "id": "ub-005",
-    "title": "2020 Reflex 490 Tournament",
-    "year": 2020,
-    "brand": "Reflex",
-    "engine": "Suzuki 90hp Fourstroke",
-    "price": 24900,
-    "image": "",
-    "badge": null
-  },
-  {
-    "id": "ub-006",
-    "title": "2017 Senator Pontoon 22ft",
-    "year": 2017,
-    "brand": "Senator",
-    "engine": "Mercury 115hp Fourstroke",
-    "price": 19500,
-    "image": "",
-    "badge": "Price Reduced"
-  },
-  {
-    "id": "ub-007",
-    "title": "2023 AMC 520 Estuary",
-    "year": 2023,
-    "brand": "AMC Boats",
-    "engine": "Mercury 90hp Fourstroke",
-    "price": 48500,
-    "image": "",
-    "badge": "Low Hours"
-  },
-  {
-    "id": "ub-008",
-    "title": "2016 Fyran 560 Centre Console",
-    "year": 2016,
-    "brand": "Fyran",
-    "engine": "Suzuki 150hp Fourstroke",
-    "price": 32000,
-    "image": "",
-    "badge": null
-  }
+  { "id": "ub-001", "title": "2021 KiwiKraft 550 Frontier", "year": 2021, "brand": "KiwiKraft", "engine": "Mercury 115hp Fourstroke", "price": 42500, "image": "/images/boats/kiwikraft/Kiwikraft.jpg", "badge": "Low Hours" },
+  { "id": "ub-002", "title": "2019 Challenger 580 Hard Top", "year": 2019, "brand": "Challenger", "engine": "Suzuki 150hp Fourstroke", "price": 38900, "image": "/images/hero/hero-boats.jpg", "badge": null },
+  { "id": "ub-003", "title": "2022 FlyFin 530 Pro Series", "year": 2022, "brand": "FlyFin", "engine": "Mercury 115hp Fourstroke", "price": 54800, "image": "/images/hero/hero-boats.jpg", "badge": "Near New" },
+  { "id": "ub-004", "title": "2018 Campion 545i Bowrider", "year": 2018, "brand": "Campion", "engine": "MerCruiser 4.3L V6", "price": 28500, "image": "/images/misc/NewOrUsedBoats650x366.jpg", "badge": null },
+  { "id": "ub-005", "title": "2020 Reflex 490 Tournament", "year": 2020, "brand": "Reflex", "engine": "Suzuki 90hp Fourstroke", "price": 24900, "image": "/images/hero/hero-boats.jpg", "badge": null },
+  { "id": "ub-006", "title": "2017 Senator Pontoon 22ft", "year": 2017, "brand": "Senator", "engine": "Mercury 115hp Fourstroke", "price": 19500, "image": "/images/misc/NewOrUsedBoats650x366.jpg", "badge": "Price Reduced" },
+  { "id": "ub-007", "title": "2023 AMC 520 Estuary", "year": 2023, "brand": "AMC Boats", "engine": "Mercury 90hp Fourstroke", "price": 48500, "image": "/images/hero/hero-boats.jpg", "badge": "Low Hours" },
+  { "id": "ub-008", "title": "2016 Fyran 560 Centre Console", "year": 2016, "brand": "Fyran", "engine": "Suzuki 150hp Fourstroke", "price": 32000, "image": "/images/misc/NewOrUsedBoats650x366.jpg", "badge": null }
 ]

@@ -1,56 +1,33 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import HeroSlider from '@/components/HeroSlider'
 import TrustBar from '@/components/TrustBar'
 import SectionHeader from '@/components/SectionHeader'
 import ProductCard from '@/components/ProductCard'
 import specials from '@/data/specials.json'
+import manifest from '@/data/image-manifest.json'
 
 const categories = [
-  {
-    label: 'New Boats',
-    desc: '75+ models across 11 leading brands',
-    href: '/boats/new',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Outboards',
-    desc: 'Mercury & Suzuki — full range in stock',
-    href: '/outboards/mercury',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Service',
-    desc: 'Mercury & Suzuki certified centre',
-    href: '/service',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Specials',
-    desc: 'Current deals and package offers',
-    href: '/specials',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-      </svg>
-    ),
-  },
+  { label: 'New Boats', desc: '75+ models across 11 leading brands', href: '/boats/new', image: '/images/hero/hero-boats.jpg' },
+  { label: 'Outboards', desc: 'Mercury & Suzuki — full range in stock', href: '/outboards/mercury', image: '/images/hero/hero-mercury-get-more.jpg' },
+  { label: 'Service', desc: 'Mercury & Suzuki certified centre', href: '/service', image: '/images/service/workshop-directions.png' },
+  { label: 'Specials', desc: 'Current deals and package offers', href: '/specials', image: '/images/hero/hero-2stroke-runout.jpg' },
 ]
 
-const allBrands = [
-  'KiwiKraft', 'FlyFin', 'Fi-Glass', 'Senator', 'AMC',
-  'Challenger', 'Campion', 'Reflex', 'Fyran', 'Legacy SLR', 'Mercury', 'Suzuki', 'Kawasaki',
+const brandLogos = [
+  { name: 'KiwiKraft', href: '/boats/new/kiwikraft', logo: (manifest.boats.kiwikraft ?? [])[0] ?? null },
+  { name: 'FlyFin', href: '/boats/new/flyfin', logo: null },
+  { name: 'Fi-Glass', href: '/boats/new/fi-glass', logo: (manifest.boats.figlass ?? [])[0] ?? null },
+  { name: 'Senator', href: '/boats/new/senator', logo: manifest.senatorLogo || null },
+  { name: 'AMC Boats', href: '/boats/new/amc-boats', logo: null },
+  { name: 'Challenger', href: '/boats/new/challenger', logo: null },
+  { name: 'Campion', href: '/boats/new/campion', logo: null },
+  { name: 'Reflex', href: '/boats/new/reflex', logo: null },
+  { name: 'Fyran', href: '/boats/new/fyran', logo: null },
+  { name: 'Legacy SLR', href: '/boats/new/legacy-slr', logo: null },
+  { name: 'Mercury', href: '/outboards/mercury', logo: manifest.mercuryLogo || null },
+  { name: 'Suzuki', href: '/outboards/suzuki', logo: null },
+  { name: 'Kawasaki', href: '/jet-skis', logo: null },
 ]
 
 const serviceItems = [
@@ -83,28 +60,30 @@ export default function HomePage() {
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader title="What Are You Looking For?" align="center" />
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-silver-mid border border-silver-mid overflow-hidden">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {categories.map((cat) => (
               <Link
                 key={cat.href}
                 href={cat.href}
-                className="group bg-white p-7 flex flex-col gap-4 hover:bg-silver transition-colors duration-200 relative"
+                className="group relative overflow-hidden aspect-[3/4] sm:aspect-[4/3]"
               >
-                <div className="w-10 h-10 bg-silver flex items-center justify-center text-ocean group-hover:bg-ocean group-hover:text-white transition-all duration-200">
-                  {cat.icon}
+                <Image
+                  src={cat.image}
+                  alt={cat.label}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/30 to-transparent" />
+                <div className="absolute inset-0 p-5 flex flex-col justify-end">
+                  <h3 className="font-display text-2xl font-bold text-white leading-tight">{cat.label}</h3>
+                  <p className="text-silver-mid text-xs mt-1 leading-relaxed hidden sm:block">{cat.desc}</p>
+                  <span className="flex items-center gap-1.5 text-white/70 text-xs font-bold tracking-wider uppercase mt-3 group-hover:text-white transition-colors">
+                    Explore
+                    <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
                 </div>
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-charcoal group-hover:text-ocean transition-colors leading-tight">
-                    {cat.label}
-                  </h3>
-                  <p className="text-xs text-silver-dark mt-1.5 leading-relaxed">{cat.desc}</p>
-                </div>
-                <span className="flex items-center gap-1.5 text-ocean text-xs font-bold tracking-wider uppercase mt-auto">
-                  Explore
-                  <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
               </Link>
             ))}
           </div>
@@ -156,16 +135,25 @@ export default function HomePage() {
           <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-silver-dark mb-8">
             Brands We Stock
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {allBrands.map((brand, i) => (
-              <span key={brand} className="flex items-center gap-8">
-                <span className="text-silver-dark font-display font-bold text-lg hover:text-charcoal transition-colors duration-200 cursor-default">
-                  {brand}
-                </span>
-                {i < allBrands.length - 1 && (
-                  <span className="text-silver-mid text-xs hidden lg:inline">·</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6">
+            {brandLogos.map((b) => (
+              <Link
+                key={b.name}
+                href={b.href}
+                className="flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-200"
+              >
+                {b.logo ? (
+                  <Image
+                    src={b.logo}
+                    alt={b.name}
+                    width={100}
+                    height={36}
+                    className="object-contain h-8 w-auto"
+                  />
+                ) : (
+                  <span className="font-display font-bold text-lg text-charcoal tracking-wide">{b.name}</span>
                 )}
-              </span>
+              </Link>
             ))}
           </div>
         </div>

@@ -47,3 +47,19 @@ export interface OutboardModel {
   keyFeature: string
   image: string
 }
+
+export interface ImageManifest {
+  logo: string
+  mercuryLogo: string
+  senatorLogo: string
+  hero: string[]
+  boats: Record<string, string[]>
+  outboards: Record<string, string[]>
+  jetskis: string[]
+  inflatables: string[]
+  trailers: string[]
+  service: string[]
+  specials: string[]
+  used: string[]
+  misc: string[]
+}

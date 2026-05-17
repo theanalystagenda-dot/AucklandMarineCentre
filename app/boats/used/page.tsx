@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import FilterBar from '@/components/FilterBar'
 import SectionHeader from '@/components/SectionHeader'
 import usedBoatsData from '@/data/used-boats.json'
@@ -72,26 +73,30 @@ export default function UsedBoatsPage() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((boat) => (
-              <div key={boat.id} className="bg-white rounded-xl border border-silver-mid shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
-                <div className="aspect-[4/3] bg-silver relative flex items-center justify-center">
-                  {boat.badge && (
-                    <span className="absolute top-3 right-3 bg-ocean text-white text-xs font-semibold px-2.5 py-1 rounded-md">
-                      {boat.badge}
-                    </span>
+              <div key={boat.id} className="bg-white border border-silver-mid shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden group">
+                <div className="aspect-[4/3] bg-charcoal relative overflow-hidden">
+                  {boat.image ? (
+                    <Image src={boat.image} alt={boat.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-charcoal to-navy" />
                   )}
-                  <svg className="w-16 h-16 text-silver-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  {boat.badge && (
+                    <span className="absolute top-0 right-0 bg-ocean text-white text-[10px] font-bold px-3 py-1.5 tracking-wider uppercase">{boat.badge}</span>
+                  )}
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-charcoal mb-1">{boat.title}</h3>
                   <p className="text-sm text-silver-dark mb-1">{boat.year} · {boat.engine}</p>
-                  <p className="text-ocean font-bold text-lg mb-3">${boat.price.toLocaleString()}</p>
+                  <p className="font-display text-xl font-bold text-navy mb-3">${boat.price.toLocaleString()}</p>
                   <a
                     href={`/contact?enquiry=${encodeURIComponent(`Enquiry about ${boat.title}`)}`}
-                    className="block text-center bg-navy text-white text-sm font-medium py-2 rounded-md hover:bg-navy-light transition-colors"
+                    className="flex items-center justify-between border border-charcoal/20 text-charcoal text-xs font-bold px-4 py-2.5 hover:bg-navy hover:text-white hover:border-navy transition-all duration-200"
                   >
                     Enquire
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
                   </a>
                 </div>
               </div>

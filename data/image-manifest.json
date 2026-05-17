@@ -1,0 +1,44 @@
+{
+  "logo": "/images/brand/logo.png",
+  "mercuryLogo": "/images/brand/mercury-logo.png",
+  "senatorLogo": "/images/brand/senator-logo.png",
+  "hero": [
+    "/images/hero/hero-2stroke-runout.jpg",
+    "/images/hero/hero-611.jpg",
+    "/images/hero/hero-boats.jpg",
+    "/images/hero/hero-dale.jpg",
+    "/images/hero/hero-mercury-get-more.jpg",
+    "/images/hero/hero-promo.jpg"
+  ],
+  "boats": {
+    "figlass": [
+      "/images/boats/figlass/02Fi-Glass-new-tile-1.png"
+    ],
+    "kiwikraft": [
+      "/images/boats/kiwikraft/Kiwikraft.jpg"
+    ]
+  },
+  "outboards": {
+    "mercury": [
+      "/images/outboards/mercury/04mercury-logo.png"
+    ]
+  },
+  "jetskis": [],
+  "inflatables": [],
+  "trailers": [],
+  "service": [
+    "/images/service/certified-service-centre.jpg",
+    "/images/service/workshop-directions.png"
+  ],
+  "specials": [],
+  "used": [],
+  "misc": [
+    "/images/misc/01whitepointer.png",
+    "/images/misc/07DMW.png",
+    "/images/misc/Mariner-logo.jpg",
+    "/images/misc/NewOrUsedBoats650x366.jpg",
+    "/images/misc/Outboards2.jpg",
+    "/images/misc/Ouval.png",
+    "/images/misc/oval-arrow.png"
+  ]
+}

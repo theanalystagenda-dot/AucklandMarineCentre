@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import SectionHeader from '@/components/SectionHeader'
 import ContactForm from '@/components/ContactForm'
 
@@ -42,6 +43,17 @@ export default function ServicePage() {
 
       <div className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Workshop directions image */}
+          <div className="relative w-full h-56 overflow-hidden mb-12">
+            <Image
+              src="/images/service/workshop-directions.png"
+              alt="Workshop location — 321 Ti Rakau Drive, Burswood"
+              fill
+              className="object-cover object-center"
+            />
+          </div>
+
           <div className="mb-16">
             <SectionHeader title="50-Point Service Inspection" subtitle="Every service includes a comprehensive check of your vessel — documented and explained in plain English." />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-3">
@@ -79,6 +91,18 @@ export default function ServicePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <SectionHeader title="Contact Our Service Team" />
+              {/* Certification badge */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="relative w-24 h-16 shrink-0">
+                  <Image
+                    src="/images/service/certified-service-centre.jpg"
+                    alt="Mercury & Suzuki Certified Service Centre"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <p className="text-sm text-silver-dark leading-relaxed">Authorised Mercury &amp; Suzuki certified service centre — factory-trained technicians only.</p>
+              </div>
               <div className="bg-silver rounded-xl p-6 mb-8">
                 <h3 className="font-semibold text-charcoal mb-1">Andrew Hilliar — Service Manager</h3>
                 <div className="flex flex-col gap-2 mt-3">
