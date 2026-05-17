@@ -25,3 +25,69 @@ body {
   color: var(--color-charcoal);
   background: #ffffff;
 }
+
+/* ── Entrance animations ─────────────────────────────── */
+@keyframes amc-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes amc-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes amc-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes amc-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(-30px, 20px) scale(1.06); }
+  70%       { transform: translate(20px, -15px) scale(0.96); }
+}
+
+.amc-enter-1 {
+  animation: amc-fade-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+}
+.amc-enter-2 {
+  animation: amc-fade-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+.amc-enter-3 {
+  animation: amc-fade-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+.amc-enter-fade {
+  animation: amc-fade-in 0.6s ease 0.45s both;
+}
+
+.amc-drift {
+  animation: amc-drift 14s ease-in-out infinite;
+}
+
+/* ── Hero grain overlay ─��────────────────────────────── */
+.amc-hero-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Slide progress bar ──────────────────────────────── */
+.amc-slide-progress {
+  transform-origin: left center;
+  animation: amc-progress 5s linear both;
+}
+
+/* ── Utility: trim line above section headings ───────── */
+.amc-rule::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  background: var(--color-ocean);
+  margin-bottom: 0.75rem;
+}
