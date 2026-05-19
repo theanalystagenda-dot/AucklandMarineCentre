@@ -3,7 +3,9 @@ import Image from 'next/image'
 import HeroSlider from '@/components/HeroSlider'
 import TrustBar from '@/components/TrustBar'
 import SectionHeader from '@/components/SectionHeader'
-import ProductCard from '@/components/ProductCard'
+import DealCard from '@/components/DealCard'
+import AllDealsButton from '@/components/AllDealsButton'
+import AnimateIn from '@/src/components/ui/AnimateIn'
 import specials from '@/data/specials.json'
 import manifest from '@/data/image-manifest.json'
 
@@ -47,6 +49,14 @@ const serviceItems = [
   },
 ]
 
+const LOGOS_PER_ROW = 4
+
+function brandLogoDelay(index: number) {
+  const row = Math.floor(index / LOGOS_PER_ROW)
+  const col = index % LOGOS_PER_ROW
+  return row * 0.15 + col * 0.08
+}
+
 export default function HomePage() {
   const featuredDeals = specials.slice(0, 3)
 
@@ -55,128 +65,122 @@ export default function HomePage() {
       <HeroSlider />
       <TrustBar />
 
-      {/* ── Featured Categories ─────────────────────────────── */}
+      {/* --- Featured Categories --- */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader title="What Are You Looking For?" align="center" />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {categories.map((cat) => (
-              <Link
-                key={cat.href}
-                href={cat.href}
-                className="group relative overflow-hidden aspect-[3/4] sm:aspect-[4/3]"
-              >
-                <Image
-                  src={cat.image}
-                  alt={cat.label}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/30 to-transparent" />
-                <div className="absolute inset-0 p-5 flex flex-col justify-end">
-                  <h3 className="font-display text-2xl font-bold text-white leading-tight">{cat.label}</h3>
-                  <p className="text-silver-mid text-xs mt-1 leading-relaxed hidden sm:block">{cat.desc}</p>
-                  <span className="flex items-center gap-1.5 text-white/70 text-xs font-bold tracking-wider uppercase mt-3 group-hover:text-white transition-colors">
-                    Explore
-                    <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
+            {categories.map((cat, i) => (
+              <AnimateIn key={cat.href} delay={i * 0.1}>
+                <Link
+                  href={cat.href}
+                  className="group relative overflow-hidden aspect-[3/4] sm:aspect-[4/3] block h-full"
+                >
+                  <Image
+                    src={cat.image}
+                    alt={cat.label}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/30 to-transparent" />
+                  <div className="absolute inset-0 p-5 flex flex-col justify-end">
+                    <h3 className="font-display text-2xl font-bold text-white leading-tight">{cat.label}</h3>
+                    <p className="text-silver-mid text-xs mt-1 leading-relaxed hidden sm:block">{cat.desc}</p>
+                    <span className="flex items-center gap-1.5 text-white/70 text-xs font-bold tracking-wider uppercase mt-3 group-hover:text-white transition-colors">
+                      Explore
+                      <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Current Deals ───────────────────────────────────── */}
+      {/* --- Current Deals --- */}
       <section className="py-20 lg:py-28 bg-silver">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-10">
-            <SectionHeader title="This Week's Deals" subtitle="Current offers on boats, outboards, and packages." />
-            <Link
-              href="/specials"
-              className="hidden sm:flex items-center gap-2 text-xs font-bold text-charcoal tracking-wider uppercase hover:text-ocean transition-colors shrink-0 mb-10"
-            >
-              All Deals
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
+          <AnimateIn delay={0}>
+            <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <SectionHeader title="This Week's Deals" subtitle="Current offers on boats, outboards, and packages." />
+              <AllDealsButton className="hidden sm:inline-flex sm:mb-10" />
+            </div>
+          </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredDeals.map((deal) => (
-              <ProductCard
-                key={deal.id}
-                title={deal.title}
-                subtitle={deal.description}
-                price={deal.price}
-                badge={deal.badge ?? undefined}
-                href="/specials"
-                ctaLabel="View Deal"
-              />
+            {featuredDeals.map((deal, i) => (
+              <AnimateIn key={deal.id} delay={(i + 1) * 0.15}>
+                <DealCard
+                  title={deal.title}
+                  subtitle={deal.description}
+                  price={deal.price}
+                  badge={deal.badge ?? undefined}
+                  href="/specials"
+                  ctaLabel="View Deal"
+                />
+              </AnimateIn>
             ))}
           </div>
           <div className="mt-8 sm:hidden">
-            <Link href="/specials" className="flex items-center gap-2 text-xs font-bold text-ocean tracking-wider uppercase">
-              View All Deals
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            <AllDealsButton label="View All Deals" />
           </div>
         </div>
       </section>
 
-      {/* ── Brand Logos ─────────────────────────────────────── */}
+      {/* --- Brand Logos --- */}
       <section className="py-12 bg-white border-y border-silver-mid">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-silver-dark mb-8">
             Brands We Stock
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6">
-            {brandLogos.map((b) => (
-              <Link
-                key={b.name}
-                href={b.href}
-                className="flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-200"
-              >
-                {b.logo ? (
-                  <Image
-                    src={b.logo}
-                    alt={b.name}
-                    width={100}
-                    height={36}
-                    className="object-contain h-8 w-auto"
-                  />
-                ) : (
-                  <span className="font-display font-bold text-lg text-charcoal tracking-wide">{b.name}</span>
-                )}
-              </Link>
+            {brandLogos.map((b, i) => (
+              <AnimateIn key={b.name} delay={brandLogoDelay(i)}>
+                <Link
+                  href={b.href}
+                  className="flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-200"
+                >
+                  {b.logo ? (
+                    <Image
+                      src={b.logo}
+                      alt={b.name}
+                      width={100}
+                      height={36}
+                      className="object-contain h-8 w-auto"
+                    />
+                  ) : (
+                    <span className="font-display font-bold text-lg text-charcoal tracking-wide">{b.name}</span>
+                  )}
+                </Link>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── About Strip ─────────────────────────────────────── */}
+      {/* --- About Strip --- */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <SectionHeader title="Auckland's Marine Specialists Since 1989" />
-              <p className="text-charcoal leading-relaxed max-w-prose mb-8 text-[15px]">
-                Auckland Marine Centre has been serving New Zealand boaties from our Burswood showroom for over 35 years. As the country&apos;s largest marine dealer, we stock 75+ boat models across 12 brands - from entry-level tinnies to serious offshore rigs. We&apos;re a Mercury and Suzuki certified service centre, meaning your engine gets factory-trained care every time.
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2.5 text-xs font-bold text-navy tracking-wider uppercase border-b border-navy pb-px hover:text-ocean hover:border-ocean transition-colors duration-200"
-              >
-                Learn More About Us
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
+            <AnimateIn direction="left">
+              <div>
+                <SectionHeader title="Auckland's Marine Specialists Since 1989" />
+                <p className="text-charcoal leading-relaxed max-w-prose mb-8 text-[15px]">
+                  Auckland Marine Centre has been serving New Zealand boaties from our Burswood showroom for over 35 years. As the country&apos;s largest marine dealer, we stock 75+ boat models across 12 brands - from entry-level tinnies to serious offshore rigs. We&apos;re a Mercury and Suzuki certified service centre, meaning your engine gets factory-trained care every time.
+                </p>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2.5 text-xs font-bold text-navy tracking-wider uppercase border-b border-navy pb-px hover:text-ocean hover:border-ocean transition-colors duration-200"
+                >
+                  Learn More About Us
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </AnimateIn>
             <div className="bg-charcoal aspect-[4/3] relative overflow-hidden flex items-center justify-center">
               <div
                 className="absolute inset-0 opacity-[0.05]"
@@ -196,9 +200,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Service Highlight ────────────────────────────────── */}
+      {/* --- Service Highlight --- */}
       <section className="py-20 lg:py-28 bg-navy relative overflow-hidden">
-        {/* Background detail */}
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -219,12 +222,14 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/10 border border-white/10 mb-12">
-            {serviceItems.map((item) => (
-              <div key={item.num} className="bg-navy p-8 hover:bg-navy-light transition-colors duration-200">
-                <span className="font-mono text-[10px] text-ocean-light tracking-widest mb-4 block">{item.num}</span>
-                <h3 className="font-display text-xl font-bold text-white mb-2 leading-tight">{item.title}</h3>
-                <p className="text-silver-dark text-sm leading-relaxed">{item.desc}</p>
-              </div>
+            {serviceItems.map((item, i) => (
+              <AnimateIn key={item.num} delay={i * 0.2} className="h-full">
+                <div className="bg-navy p-8 hover:bg-navy-light transition-colors duration-200 h-full">
+                  <span className="font-mono text-[10px] text-ocean-light tracking-widest mb-4 block">{item.num}</span>
+                  <h3 className="font-display text-xl font-bold text-white mb-2 leading-tight">{item.title}</h3>
+                  <p className="text-silver-dark text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
 
@@ -240,7 +245,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Contact Bar ─────────────────────────────────────── */}
+      {/* --- Contact Bar --- */}
       <div className="bg-charcoal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-stretch divide-y sm:divide-y-0 sm:divide-x divide-white/10">
