@@ -29,9 +29,9 @@ export default function ServicePage() {
       <div className="bg-navy py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 mb-6">
-            <div className="flex gap-2">
-              <div className="w-3 h-8 bg-mercury-red rounded-sm" />
-              <div className="w-3 h-8 bg-suzuki-blue rounded-sm" />
+            <div className="flex gap-2" aria-hidden="true">
+              <div className="w-3 h-8 bg-mercury-red" />
+              <div className="w-3 h-8 bg-suzuki-blue" />
             </div>
             <h1 className="font-display text-5xl lg:text-6xl font-bold text-white">Service & Parts</h1>
           </div>
@@ -54,12 +54,13 @@ export default function ServicePage() {
             />
           </div>
 
+          {/* 50-Point Checklist */}
           <div className="mb-16">
             <SectionHeader title="50-Point Service Inspection" subtitle="Every service includes a comprehensive check of your vessel - documented and explained in plain English." />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-3">
               {checklistItems.map((item) => (
                 <div key={item} className="flex items-center gap-2 text-sm text-charcoal">
-                  <svg className="w-4 h-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <svg className="w-4 h-4 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                   {item}
@@ -68,52 +69,59 @@ export default function ServicePage() {
             </div>
           </div>
 
+          {/* Services grid */}
           <div className="mb-16">
             <SectionHeader title="Our Services" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {services.map((s) => (
-                <div key={s.title} className="flex gap-4 p-5 rounded-xl bg-silver border border-silver-mid">
-                  <div className="w-10 h-10 bg-ocean rounded-lg flex items-center justify-center shrink-0">
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <div key={s.title} className="flex gap-4 p-5 bg-silver border border-silver-mid">
+                  <div className="w-10 h-10 bg-ocean flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-semibold text-charcoal mb-1">{s.title}</h3>
-                    <p className="text-sm text-silver-dark">{s.desc}</p>
+                    <p className="text-sm text-silver-dark leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
+          {/* Contact + form */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <SectionHeader title="Contact Our Service Team" />
-              {/* Certification badge */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="relative w-24 h-16 shrink-0">
                   <Image
                     src="/images/service/certified-service-centre.jpg"
-                    alt="Mercury & Suzuki Certified Service Centre"
+                    alt="Mercury & Suzuki Certified Service Centre badge"
                     fill
                     className="object-contain"
                   />
                 </div>
                 <p className="text-sm text-silver-dark leading-relaxed">Authorised Mercury &amp; Suzuki certified service centre - factory-trained technicians only.</p>
               </div>
-              <div className="bg-silver rounded-xl p-6 mb-8">
-                <h3 className="font-semibold text-charcoal mb-1">Andrew Hilliar - Service Manager</h3>
-                <div className="flex flex-col gap-2 mt-3">
-                  <a href="tel:092711575" className="flex items-center gap-2 text-sm text-ocean hover:underline">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="bg-silver border border-silver-mid p-6 mb-8">
+                <h3 className="font-semibold text-charcoal mb-3">Andrew Hilliar - Service Manager</h3>
+                <div className="flex flex-col gap-2.5">
+                  <a
+                    href="tel:0927111575"
+                    className="flex items-center gap-2 text-sm text-ocean hover:text-navy transition-colors focus-visible:outline-2 focus-visible:outline-ocean focus-visible:outline-offset-1"
+                  >
+                    <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                     09 271 1575 ext 4
                   </a>
-                  <a href="mailto:service@aucklandmarine.co.nz" className="flex items-center gap-2 text-sm text-ocean hover:underline">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <a
+                    href="mailto:service@aucklandmarine.co.nz"
+                    className="flex items-center gap-2 text-sm text-ocean hover:text-navy transition-colors focus-visible:outline-2 focus-visible:outline-ocean focus-visible:outline-offset-1"
+                  >
+                    <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     service@aucklandmarine.co.nz

@@ -1,6 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap');
 @import "tailwindcss";
 
+/* ── Skip link for keyboard navigation ──────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--color-navy);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ── Cursor defaults ─────────────────────────────────── */
+button { cursor: pointer; }
+[role="button"] { cursor: pointer; }
+
 @theme {
   --color-navy: #0A1628;
   --color-navy-light: #112240;
@@ -65,7 +86,7 @@ body {
   animation: amc-drift 14s ease-in-out infinite;
 }
 
-/* ── Hero grain overlay ─��────────────────────────────── */
+/* ── Hero grain overlay ─────────────────────────────── */
 .amc-hero-grain::before {
   content: '';
   position: absolute;
@@ -80,6 +101,30 @@ body {
 .amc-slide-progress {
   transform-origin: left center;
   animation: amc-progress 5s linear both;
+}
+
+/* ── Respect prefers-reduced-motion ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .amc-enter-1,
+  .amc-enter-2,
+  .amc-enter-3,
+  .amc-enter-fade {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .amc-drift {
+    animation: none;
+  }
+  .amc-slide-progress {
+    animation: none;
+    transform: scaleX(1);
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* ── Utility: trim line above section headings ───────── */

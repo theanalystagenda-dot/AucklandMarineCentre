@@ -47,10 +47,10 @@ export default function UsedOutboardsPage() {
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <FilterBar filters={hpFilters} activeFilter={hpFilter} onChange={setHpFilter} />
           <div className="flex gap-3 ml-auto">
-            <select value={brandFilter} onChange={(e) => setBrandFilter(e.target.value)} className="border border-silver-mid rounded-md px-3 py-2 text-sm text-charcoal focus:outline-none focus:ring-2 focus:ring-ocean">
+            <select value={brandFilter} onChange={(e) => setBrandFilter(e.target.value)} className="border border-silver-mid bg-white px-3 py-2 text-sm text-charcoal focus:outline-none focus:ring-2 focus:ring-ocean focus:border-ocean">
               {allBrands.map((b) => <option key={b}>{b}</option>)}
             </select>
-            <select value={sort} onChange={(e) => setSort(e.target.value)} className="border border-silver-mid rounded-md px-3 py-2 text-sm text-charcoal focus:outline-none focus:ring-2 focus:ring-ocean">
+            <select value={sort} onChange={(e) => setSort(e.target.value)} className="border border-silver-mid bg-white px-3 py-2 text-sm text-charcoal focus:outline-none focus:ring-2 focus:ring-ocean focus:border-ocean">
               <option>Newest</option>
               <option>Price ↑</option>
               <option>Price ↓</option>

@@ -32,9 +32,9 @@ export default function MerCruiserPage() {
           <div className="mb-4">
             <Link href="/outboards/mercury" className="text-silver-dark text-sm hover:text-silver-mid transition-colors">← Mercury Outboards</Link>
           </div>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-3 h-8 bg-mercury-red rounded-sm" />
-            <h1 className="font-display text-5xl lg:text-6xl font-bold text-white">MerCruiser</h1>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-3 h-10 bg-mercury-red" aria-hidden="true" />
+            <h1 className="font-display text-5xl lg:text-6xl font-bold text-white tracking-tight">MerCruiser</h1>
           </div>
           <p className="text-silver-mid text-lg max-w-2xl">
             MerCruiser sterndrives and inboard engines - serviced and supported by AMC&apos;s certified technicians.
@@ -42,7 +42,7 @@ export default function MerCruiserPage() {
         </div>
       </div>
 
-      <div className="border-b border-silver-mid bg-white">
+      <div className="border-b border-silver-mid bg-white sticky top-[60px] z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-0 -mb-px">
             {tabs.map((tab) => (
@@ -66,14 +66,20 @@ export default function MerCruiserPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {(subModels[activeTab] ?? []).map((model) => (
-              <div key={model.name} className="bg-white rounded-xl border border-silver-mid shadow-sm hover:shadow-md transition-all duration-200 p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-semibold text-charcoal">{model.name}</h3>
-                  <span className="text-mercury-red font-bold text-sm">{model.hp}</span>
+              <div key={model.name} className="bg-white border border-silver-mid hover:border-mercury-red/30 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 p-6 flex flex-col group">
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <h3 className="font-semibold text-charcoal text-[15px]">{model.name}</h3>
+                  <span className="text-mercury-red font-bold text-sm tabular-nums shrink-0">{model.hp}</span>
                 </div>
-                <p className="text-sm text-silver-dark mb-4">{model.desc}</p>
-                <Link href="/contact?enquiry=MerCruiser+enquiry" className="block text-center bg-navy text-white text-sm font-medium py-2 rounded-md hover:bg-navy-light transition-colors">
+                <p className="text-xs text-silver-dark leading-relaxed mb-5 flex-1">{model.desc}</p>
+                <Link
+                  href="/contact?enquiry=MerCruiser+enquiry"
+                  className="flex items-center justify-between bg-white border border-charcoal/20 text-charcoal text-xs font-bold px-4 py-2.5 tracking-wide hover:bg-navy hover:text-white hover:border-navy transition-all duration-200 focus-visible:outline-2 focus-visible:outline-ocean focus-visible:outline-offset-2"
+                >
                   Enquire
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </Link>
               </div>
             ))}
